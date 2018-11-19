@@ -1,0 +1,13 @@
+
+Auto Parking Corrector
+
+i use casen bilen har to længde zoner på 50 cm* en foran bilen og en bagved bilen. 
+Use casen beskriver et optimal funktionsscenarie
+kort use case:
+
+- Bilen stopper og parkerer.
+- Bilen starter med at måle begge zoner.
+- Ny Bil parkere indenfor 50cm bag ved bilen.
+- Bilen kører frem til der er mindst 50cm til bilen bagved.
+- Ny Bil parkere 10cm foran bilen.
+- Bilen bakker indtil der er ca. lige langt mellem bilerne bagved og foran bilen. 
