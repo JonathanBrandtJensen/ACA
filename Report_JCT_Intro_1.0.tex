@@ -1,0 +1,287 @@
+% Loader dokumentklassen revtex4. S�tter sproget i dokumentet til dansk, papirtypen til A4, laver to s�jler og siger at vi gerne vil bruge matematikpakkerne fra ams.
+\documentclass[a4paper,onecolumn,amsmath,amssymb]{revtex4-1}
+\usepackage[english]{babel}%Giver mulighed for dansk orddeling. Slet kun hvis du VED hvad du laver, eller skal skrive noget på engelsk.
+\usepackage[latin1]{inputenc}	%Tillader danske tegn
+\usepackage[T1]{fontenc}	%Tillader danske tegn
+\usepackage{graphicx}		%Tillader inds�ttelse af billeder
+\usepackage{dcolumn}		%Bruges til at lave matematiske tabelsøjler... se datatabel
+\usepackage{booktabs}		%linjer i tabeller...
+\usepackage{mathtools}		%Ekstra matematik... bare lad den være, du får muligvis brug for den.
+\usepackage{xcolor}
+\usepackage{epsfig}
+\usepackage{amssymb}
+\normalsize
+%siunitx-pakken er ny ift. den originale template, s� der henvises i tekstan til en anden pakke, beklager.
+\usepackage{siunitx}	%Bruges \SI{<tal>}{<enhed>}, \si{<enhed>} eller \num{<tal>}.
+\sisetup{output-decimal-marker={.},separate-uncertainty=true}%Sørger for komma som decimalmark�r. Virker også ved decimaltal, hvis man bruger \num{<tal>}.
+\usepackage{url}		 %bruges til at formattere url'er... kan sagtens udelades.
+%Det f�lgende laver to makroer, \tref{} og \fref, der kan bruges ligesom \ref til at referere til hhv. tabeller og figurer. 
+%De inds�tter selv ordet Tabel/Figur, og s�rger for at der ikke sker et linjebrud mellem dette og nummeret.
+\newcommand{\tref}[1]{\tablename~\ref{#1}}
+\newcommand{\fref}[1]{\figurename~\ref{#1}}
+%Tilsvarende for ligninger. Indsætter "ligning (#)".
+\newcommand{\lref}[1]{ligning~\eqref{#1}}
+	% \eqref laver en reference med parenteser omkring (til brug ved ligninger.)
+\usepackage[margin=1.0in]{geometry}
+%Disse makroer indsætter ordene "PicoScope" og "EasyPlot" i teksten (med store bogstaver. Husk at sætte "{}" bagefter for at få et mellemrum.
+%Jeg har lavet dem fordi jeg blev træt af at sidde og trykke shift hele tiden, og for at få det til at st� ens. Brug dem, eller lad være.
+\newcommand{\picos}[0]{\textsc{PicoScope}} %hedder \picos for ikke at komme i kambolage med pico fra SIunits.
+\newcommand{\epw}[0]{\textsc{EasyPlot}}    %epw er navnet på programfilen for easyplot, men det har ingen betydning for makroen. Jeg valgte det fordi det var noget jeg kunne huske, og det kan sagtens ændres.
+\newcommand{\matl}[0]{\textsc{Matlab}} %Skriver Matlab med small caps.
+
+%hyperref-pakken kan bruges til at redigere pdf-metadata. Det kan v�re et nice touch, men er generelt ikke påkrævet. Laver automatisk referencer i teksten til farvede hyperlinks i.
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{subcaption}
+\usepackage{verbatim}
+\usepackage{atbegshi} %%Removes blank page before title page
+\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+
+
+
+\hypersetup
+{   pdfsubject={Rapport},
+	pdfauthor={}
+    pdftitle={Draft Thesis},
+    pdfstartview=FitH,
+    colorlinks=true}
+    \usepackage{titlesec}
+
+\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+\titleformat*{\paragraph}{\large\bfseries}
+\titleformat*{\subparagraph}{\large\bfseries}
+    
+%F�lgende gør, at subscripts bliver ikke-kursiv. Anvendes X_|<subscript>|. Erstattes evt. med X_{\mathrm{<subscript>}}.
+\makeatletter
+\begingroup
+\catcode`\_=\active
+\protected\gdef_{\@ifnextchar|\subtextup\sb}
+\endgroup
+\def\subtextup|#1|{\sb{\textup{#1}}}
+\AtBeginDocument{\catcode`\_=12 \mathcode`\_=32768 }
+\makeatother
+\usepackage{graphicx}
+\usepackage[danish=quotes]{csquotes} %Danske citationstegn. \enquote{}
+\usepackage{bbm}
+
+%Lad disse to linjer v�re. De s�rger for at bunden af siden bliver p�n, og fjerner indryk ved afsnit.
+\raggedbottom
+\parindent = 5pt
+\renewcommand{\thesection}{\arabic{section}}
+ \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+ \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+ 
+\newcommand{\incomplete}{\textcolor{red}{\large NOT DONE YET!}}
+\newcommand{\noncorr}{\textcolor{red}{\Large NOT CORRECTED YET!}} 
+\newcommand{\missing}{\textcolor{red}{\large SOME MATERIAL IS MISSING HERE}}
+\newcommand{\scatrat}{a_{AB}/a_{AA}}
+\newcommand{\massrat}{m_{A}/m_{B}}
+\newcommand{\invarat}{a_{AA}/a_{AB}}
+\newcommand{\sgn}{\textrm{sgn}}
+
+\usepackage{soul,color}
+%\usepackage{refcheck}
+\begin{document}
+%Dette er boksen i toppen. Lad den v�re.
+%\framebox[\textwidth][l]{\textbf{
+%\begin{tabular}{p{\linewidth}l}
+%Modtaget dato:  & {Godkendt:}\\
+%& Dato:\\
+%& Underskrift:\\
+%(forbeholdt instruktor) & \\
+%\end{tabular}
+%}}
+%Boksen slutter her.
+
+%\bigskip
+%\title{Kursus i eksperimentelle øvelser, øvelse 4: Rutherfordspredning med 400 kV van de Graaff
+%accelerator.}
+
+\
+ %Hvis begge personer studerer det samme sted, kan informationen her flyttes til \affiliation
+%Forfatter 2 
+ %Det er nok de f�rreste der er s� priviligerede at have holdnummer pi, s� skift denne tekst ud
+	% Bem�rk at det har betydning hvor \affilliation og \altaffiliation er placeret i forhold til \author. De virker p� alle forfattere der kommer f�r dem.
+
+
+\begin{titlepage}
+\pagenumbering{gobble}
+%\title{\Huge{Properties of Three-Body Systems with Varying Pairwise Interactions}}
+\vspace{1cm}
+%\author{Jens C. Therkildsen\\
+%Aarhus University\\
+%Insitute of Physics and Astronomy}
+%%\date{August, 2016}
+%\vspace{10cm}
+\title{\Huge{Intro to ACA Lab project, 2018.}}
+\author{Jens C. Therkildsen,  Jonathan Brandtjensen\\
+Aarhus University\\
+IFA}
+\maketitle
+\end{titlepage}
+\newpage
+\pagenumbering{gobble}
+\mbox{}
+\newpage
+\pagenumbering{roman}
+
+\tableofcontents
+
+\cleardoublepage
+
+\pagenumbering{arabic}
+
+
+\noindent
+\section{\textbf{Introduction}}
+
+For our project, we decided to attempt to implement a crude autoparker under specified conditions. The main feature which has been implemented is that when an object is detected within a vicinity $\kappa$, but larger than a vicinity $\ell_{min}$, of either end of a small car, to both of which are attached a small distance measuring sensor, the car will automatically move itself towards the object and stop at a distance $\ell_{min}$ from it. This creates the basis for expanding the project to include two dobjects, and making the car find the midpoint, as the routine employed is the same, the difference being delay and system effects introduced by having more going on at the same time.\\
+
+ 
+The car is desired to move away with a constant speed so the primary purposes of pole placement and adaptive control routines, in this project, is to control the acceleration required to attain the desired constant speed ,$v_0$, and to control the deceleration as the car reached it's target distance, such that it does not overshoot or undershoot (the former perhaps being more important to get right in a real life implementation).\\
+
+
+We keep the system to first order, not considering integrators within implemented control schemes, as the only differentiated quantity is the speed, $v_0$, which is constant most of the time,  leaving us only to consider the relative distances, even allowing neglection of the length of the car for now. 
+
+\section{\textbf{Overview of Scenarios}}
+
+The left-right symmetry of the problem eliminates half of our cases instantly. The largest disctinction between all cases is whether or not one or two objects are involved.\\
+\subsection{\textbf{One  Object}}
+
+\subsection{\textbf{Two Objects}}
+
+\section{\textbf{Physical Set Up}}
+\subsections{\textbf{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+ 
+
+
+ 
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{thebibliography}{99}
+
+\end{thebibliography}
+
+
+
+
+
+
+\end{document}
