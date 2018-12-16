@@ -1,4 +1,4 @@
-clear all;
+    clear all;
 
 load('MotorTest3_80.mat', 'simout')
 x= simout.signals.values;

@@ -1,8 +1,8 @@
 %Define the system
 
-a=[0 1; -7 -9];
-b=[0;1];
-c=[4 1];
+a=[0 0 0.09667; -1 -6.523 0];
+b=[0;0;1];
+c=[0; 4; 0];
 d=0;
 %define the extended system with integrator
 syms s k1 k2 ke
@@ -14,13 +14,15 @@ det(A)
 
 %find desired poles
 syms Omega G
-Damp = 0.6;
+OS=10;% desired overshoot in percent
+Ts=0.5; %desired settling time in seconds
+Damp=-log(OS/100)/sqrt(pi^2+(log(OS/100)^2)); %desired damping ratio
 eqn = 2 == 4/(Damp*Omega);
 O = solve(eqn, Omega);
 ch_eqn = s^2+2*Damp*O*s+O^2
 P = roots([1 4 100/9])
 %equate poles to desired k values
-k = place(a, b, P)
+k = place(a, b, P(P', 5))
 k_alt = place(a, b, P)
 %Define feedback gains and new state matrix
 aa=a-b*k;

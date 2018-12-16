@@ -28,36 +28,24 @@
     ;%
     ;% Auto data (o2eruqluc5)
     ;%
-      section.nData     = 7;
-      section.data(7)  = dumData; %prealloc
+      section.nData     = 4;
+      section.data(4)  = dumData; %prealloc
       
-	  ;% o2eruqluc5.DiscreteDerivative_ICPrevScaled
+	  ;% o2eruqluc5.SquareWaveGenerator_Amplitude
 	  section.data(1).logicalSrcIdx = 0;
 	  section.data(1).dtTransOffset = 0;
 	
-	  ;% o2eruqluc5.SquareWaveGenerator_Amplitude
+	  ;% o2eruqluc5.SquareWaveGenerator_Frequency
 	  section.data(2).logicalSrcIdx = 1;
 	  section.data(2).dtTransOffset = 1;
 	
-	  ;% o2eruqluc5.SquareWaveGenerator_Frequency
+	  ;% o2eruqluc5.Gain1_Gain
 	  section.data(3).logicalSrcIdx = 2;
 	  section.data(3).dtTransOffset = 2;
 	
-	  ;% o2eruqluc5.Gain1_Gain
+	  ;% o2eruqluc5.Constant_Value
 	  section.data(4).logicalSrcIdx = 3;
 	  section.data(4).dtTransOffset = 3;
-	
-	  ;% o2eruqluc5.TSamp_WtEt
-	  section.data(5).logicalSrcIdx = 4;
-	  section.data(5).dtTransOffset = 4;
-	
-	  ;% o2eruqluc5.SignalGenerator_Amplitude
-	  section.data(6).logicalSrcIdx = 5;
-	  section.data(6).dtTransOffset = 5;
-	
-	  ;% o2eruqluc5.SignalGenerator_Frequency
-	  section.data(7).logicalSrcIdx = 6;
-	  section.data(7).dtTransOffset = 6;
 	
       nTotData = nTotData + section.nData;
       paramMap.sections(1) = section;
@@ -107,7 +95,7 @@
       section.nData     = 1;
       section.data(1)  = dumData; %prealloc
       
-	  ;% jbgoooptdxu.ataff5h30u
+	  ;% jbgoooptdxu.gfy5c5zakm
 	  section.data(1).logicalSrcIdx = 0;
 	  section.data(1).dtTransOffset = 0;
 	
@@ -115,16 +103,12 @@
       sigMap.sections(1) = section;
       clear section
       
-      section.nData     = 2;
-      section.data(2)  = dumData; %prealloc
+      section.nData     = 1;
+      section.data(1)  = dumData; %prealloc
       
 	  ;% jbgoooptdxu.hxsbsx3jii
 	  section.data(1).logicalSrcIdx = 1;
 	  section.data(1).dtTransOffset = 0;
-	
-	  ;% jbgoooptdxu.cy1yrzfefz
-	  section.data(2).logicalSrcIdx = 2;
-	  section.data(2).dtTransOffset = 1;
 	
       nTotData = nTotData + section.nData;
       sigMap.sections(2) = section;
@@ -174,7 +158,7 @@
       section.nData     = 1;
       section.data(1)  = dumData; %prealloc
       
-	  ;% gxecmslgjs5.ht5423djoy
+	  ;% gxecmslgjs5.geluah31je.LoggedData
 	  section.data(1).logicalSrcIdx = 0;
 	  section.data(1).dtTransOffset = 0;
 	
@@ -208,8 +192,8 @@
   ;%
 
 
-  targMap.checksum0 = 724790739;
-  targMap.checksum1 = 3199556385;
-  targMap.checksum2 = 2302732350;
-  targMap.checksum3 = 3605333904;
+  targMap.checksum0 = 2379272828;
+  targMap.checksum1 = 3544916562;
+  targMap.checksum2 = 2707275448;
+  targMap.checksum3 = 1483594746;
 
