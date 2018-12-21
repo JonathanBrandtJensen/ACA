@@ -291,9 +291,34 @@ In our system we have one entities performing measurements. A ultrasound sensor,
 Based on the idea that the distance measured by the sensor, is technically a position, we have tried to make a observer with controller design to regulate the change in position until we reach the reference $\ell_{min}$.
 \section{\textbf{Implementations and Results}}
 
+First we implemented a simulation of the observer and controller
 
 
+\FloatBarrier
+\begin{figure}
+	\includegraphics[width=\textwidth, trim= 0cm 0cm 0cm 0cm, clip]{project_simulation.png}
+	\caption{\textit{Picture showing simulation of distance measurement observer and controller }\label{fig:projectsimulation}}
+\end{figure}
 
+Based on a transfer function made from data from the motor. We found the following transfer function.
+
+\begin{figure}
+	\includegraphics[width=0.4\textwidth]{Tf.png}
+	\caption{\textit{transfer function of the motor made by matlab function tfest }\label{fig:transferfunction}}
+\end{figure}
+\FloatBarrier
+
+Using this transfer function to create a state space model we filled in the variables in the simulation, and tried to create a simulink to send to the lego ev3.
+
+\begin{figure}
+	\includegraphics[width=\textwidth, trim= 0cm 0cm 0cm 0cm, clip]{project_working.png}
+	\caption{\textit{Picture showing a lego ev3 version of distance measurement observer and controller }\label{fig:projectworking}}
+\end{figure}
+
+
+Unfortunately this system was very unstable and oscillated from positive to negative values, until surpassing the limits of the lego ev3 hardware and stopping.
+
+We assume this could be because of a steady state error introduced during the design. 
 
 
 

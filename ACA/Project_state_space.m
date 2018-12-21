@@ -2,10 +2,11 @@ clear all;
 format long;
 %% Define the system
 a=[0 1 ; 0 -6.523];
+syms s
 b=[0;1];
 c=[0.09667 0];
 d=0;
-
+tf = 0.09667/(s-6.523);
 %find the state feedback equation
 syms s k1
 A=[0 1;0 -(6.523+k1)]
